@@ -201,3 +201,55 @@ public:
 		return reverse_iterator(begin());
 	}
 };
+
+// Checks if the contents of lhs and rhs are equal, that is, they have the same number of elements and
+// each element in lhs compares equal with the element in rhs at the same position.
+template<class T>
+bool operator==(const Vector<T>& lhs, const Vector<T>& rhs)
+{
+	if(lhs.size() != rhs.size())
+		return false;
+	for(std::size_t i = 0; i < lhs.size(); i++)
+		if(lhs[i] != rhs[i])
+			return false;
+	return true;
+}
+
+template<class T>
+bool operator!=(const Vector<T>& lhs, const Vector<T>& rhs)
+{
+	return !(lhs == rhs);
+}
+
+// Compares the contents of lhs and rhs lexicographically.
+template<class T>
+bool operator<(const Vector<T>& lhs, const Vector<T>& rhs)
+{
+	std::size_t i = 0;
+	for(; i < lhs.size() && i < rhs.size(); i++)
+	{
+		if(lhs[i] < rhs[i])
+			return true;
+		if(rhs[i] < lhs[i])
+			return false;
+	}
+	return i == lhs.size() && i < rhs.size();
+}
+
+template<class T>
+bool operator>(const Vector<T>& lhs, const Vector<T>& rhs)
+{
+	return rhs < lhs;
+}
+
+template<class T>
+bool operator<=(const Vector<T>& lhs, const Vector<T>& rhs)
+{
+	return !(rhs < lhs);
+}
+
+template<class T>
+bool operator>=(const Vector<T>& lhs, const Vector<T>& rhs)
+{
+	return !(lhs < rhs);
+}
