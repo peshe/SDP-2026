@@ -21,9 +21,9 @@ public:
 	using reverse_iterator = Reverse_iterator<iterator>;
 	using const_reverse_iterator = Reverse_iterator<const_iterator>;
 
-	Vector(): buf(new T[initial_capacity]), sz(0), cap(initial_capacity) {}
+	Vector(): buf(new T[initial_capacity]{}), sz(0), cap(initial_capacity) {}
 
-	Vector(const Vector& other): buf(new T[other.cap]), sz(other.sz), cap(other.cap)
+	Vector(const Vector& other): buf(new T[other.cap]{}), sz(other.sz), cap(other.cap)
 	{
 		try
 		{
@@ -107,7 +107,7 @@ public:
 	void reserve(std::size_t new_cap)
 	{
 		if(new_cap <= cap) return;
-		T* tmp = new T[new_cap];
+		T* tmp = new T[new_cap]{};
 
 		try
 		{
