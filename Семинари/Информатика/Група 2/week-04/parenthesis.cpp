@@ -29,15 +29,17 @@ bool checkExpression(const std::string& expr)
 		if(isOpenParenthesis(c))
 			s.push(c);
 		else
+		{
 			try {
 				if(s.empty() || s.top() != getOpeningParenthesis(c))
 					return false;
 				else s.pop();
 			}
-	catch(const std::invalid_argument&)
-	{
-		return false;
-	}
+			catch(const std::invalid_argument&)
+			{
+				return false;
+			}
+		}
 	return s.empty();
 }
 
