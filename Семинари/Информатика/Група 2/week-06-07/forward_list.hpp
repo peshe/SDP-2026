@@ -36,7 +36,7 @@ public:
 	using pointer = value_type*;
 	using difference_type = std::ptrdiff_t;
 
-	flist_iterator(flist_node_base* node): node(node) {}
+	flist_iterator(flist_node_base* node = nullptr): node(node) {}
 	operator const_iterator() const noexcept
 	{
 		return {node};
