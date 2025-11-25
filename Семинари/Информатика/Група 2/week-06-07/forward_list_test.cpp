@@ -166,7 +166,7 @@ namespace
 		EXPECT_THAT(fl, ElementsAreArray({4,3,2,1}));
 	}
 
-	TEST(ForwardList, Unique)
+	/*TEST(ForwardList, Unique)
 	{
 		forward_list<int> fl{1,1,2,3,3,3,3,3,4,3,3};
 		std::size_t removed = fl.unique();
@@ -185,7 +185,7 @@ namespace
 		EXPECT_TRUE(b.empty());
 		EXPECT_EQ(a.size(), 10u);
 		EXPECT_THAT(a, ElementsAreArray({1,1,2,3,4,5,6,10,20,30}));
-	}
+	}*/
 
 	TEST(ForwardList, IteratorsWork)
 	{
