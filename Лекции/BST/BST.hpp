@@ -150,6 +150,7 @@ private:
 		}catch(...){
 			clear(result->left);
 			clear(result->right);
+			delete result;
 			throw;
 		}
     }
@@ -445,3 +446,4 @@ private:
 
 
 #endif //__BST_HEADER_INCLUDED_
+
